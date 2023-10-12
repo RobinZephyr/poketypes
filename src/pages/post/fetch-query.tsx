@@ -34,10 +34,9 @@ export default function FetchQueryPractice() {
   });
 
 
-  const submitPokemon =(evt)=>{
+  const submitPokemon =(evt: React.FormEvent)=>{
     evt.preventDefault();
-
-    const formData= new FormData(evt.currentTarget);
+    const formData = new FormData(evt.currentTarget);
     const entries = formData.entries();
     const rawData = Object.fromEntries(entries) as Record<string,string>;
 
@@ -120,7 +119,7 @@ export default function FetchQueryPractice() {
       <form
       className='form-container'
       onSubmit={submitPokemon}>
-<input type="text" name="pokemon" />
+      <input type="text" name="pokemon" />
       <input type="text" name="type" />
       <button type="submit">Save</button>
       </form>
@@ -130,6 +129,7 @@ export default function FetchQueryPractice() {
       <table >
         <thead>
             <tr>
+
               <th style={{border:'1px solid black'}}>
                 Pokemon
               </th>
