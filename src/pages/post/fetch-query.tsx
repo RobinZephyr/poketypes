@@ -1,9 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
+import React from 'react';
 
 export default function FetchQueryPractice() {
 
-  const [usePokemon,setUsePokemon] = useState('')
+  const [usePokemon, setUsePokemon] = useState<{ pokemon: string, type:string } | null>(null);
+
 
   const [type,setPokemonType] = useState('')
   const [typeColor, setTypeColor] = useState('');
@@ -34,15 +36,16 @@ export default function FetchQueryPractice() {
   });
 
 
-  const submitPokemon =(evt)=>{
+  const submitPokemon = (evt: React.FormEvent) => {
     evt.preventDefault();
-
-    const formData= new FormData(evt.currentTarget);
+  
+    const formData = new FormData(evt.currentTarget as HTMLFormElement);
     const entries = formData.entries();
-    const rawData = Object.fromEntries(entries) as Record<string,string>;
-
+    const rawData = Object.fromEntries(entries) as Record<string, string>;
+  
     mutate(rawData);
   }
+  
 
   useEffect(() => {
     const lowType= type.toLowerCase();
