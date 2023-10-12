@@ -34,12 +34,14 @@ export default function FetchQueryPractice() {
   });
 
 
-  const submitPokemon =(evt: React.FormEvent)=>{
+  const submitPokemon = (evt: React.FormEvent) => {
     evt.preventDefault();
-    const formData = new FormData(evt.currentTarget);
+    const formElement = evt.currentTarget as HTMLFormElement; // Explicitly cast to HTMLFormElement
+    const formData = new FormData(formElement);
     const entries = formData.entries();
-    const rawData = Object.fromEntries(entries) as Record<string,string>;
-
+    const rawData = Object.fromEntries(entries) as Record<string, string>;
+  
+  
     mutate(rawData);
   }
 
