@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import FetchQueryPractice from './post/fetch-query';
 
 export default function Home() {
   const [name, setName] = useState('');
@@ -9,5 +10,8 @@ export default function Home() {
       .then((data) => setName(data.name));
   }, []);
 
-  return <main>Hello {name}</main>;
+  return <main>
+    
+    <FetchQueryPractice/>
+     {name}</main>;
 }
