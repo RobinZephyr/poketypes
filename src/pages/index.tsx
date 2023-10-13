@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import FetchQueryPractice from './post/fetch-query';
+import '../styles/global.css'
 
 export default function Home() {
   const [name, setName] = useState('');

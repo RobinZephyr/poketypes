@@ -2,6 +2,8 @@ import { useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import React from 'react';
 
+
+
 export default function FetchQueryPractice() {
 
   const [usePokemon, setUsePokemon] = useState<{ pokemon: string, type:string } | null>(null);
